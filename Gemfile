@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'thor', '0.19.4'
 
+# Add bootstrap library to the project.
+gem 'bootstrap-sass'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
