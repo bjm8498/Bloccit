@@ -9,6 +9,8 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
 
+#gem 'ruby', '~> 2.4.1'
+
 group :production do
     # Use pg as the production database for the Active record
     gem 'pg'
