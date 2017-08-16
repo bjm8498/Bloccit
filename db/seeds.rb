@@ -9,9 +9,12 @@ require "random_data"
         )
 end
 
+
+
 post = Post.all
 
 100.times do
+
     
     Comment.create!(
         
@@ -19,6 +22,19 @@ post = Post.all
         body: RandomData.random_paragraph
         )
 end
+
+
+
+Post.find_or_create_by(
+    
+    title: "Hello title",
+    body: "My friend you created me."
+    )
+
+Comment.find_or_create_by(
+    post: Post.find_or_create_by(title: "Hello title"),
+    body: "I have been made."
+    )
 
 puts "Seed finished"
 puts "#{Post.count} posts created"
