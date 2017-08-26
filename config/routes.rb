@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  # 
+  # get 'advertisements/index'
+  #
+  # get 'advertisements/show'
+  #
+  # get 'advertisements/new'
+  #
+  # get 'advertisements/create'
 
   # get 'question/index'
   #
@@ -19,6 +27,7 @@ Rails.application.routes.draw do
   end
   # resources :posts
   resources :advertisements
+  #resources :advertisement
   resources :question
 
   get 'about' => 'welcome#about'
