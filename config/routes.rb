@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'questions/index'
+
+  get 'questions/show'
+
+  get 'questions/edit'
+
+  get 'questions/new'
+
+  get 'questions/create'
+
+  get 'questions/update'
+
+  get 'questions/destroy'
+
   # 
   # get 'advertisements/index'
   #
