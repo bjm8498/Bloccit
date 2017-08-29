@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   get 'questions/index'
 
   get 'questions/show'
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'questions/destroy'
 
-  # 
+  #
   # get 'advertisements/index'
   #
   # get 'advertisements/show'
