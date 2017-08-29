@@ -1,42 +1,20 @@
 Rails.application.routes.draw do
 
-
-  get 'questions/index'
-
-  get 'questions/show'
-
-  get 'questions/edit'
-
-  get 'questions/new'
-
-  get 'questions/create'
-
-  get 'questions/update'
-
-  get 'questions/destroy'
-
   #
-  # get 'advertisements/index'
+  # get 'questions/index'
   #
-  # get 'advertisements/show'
+  # get 'questions/show'
   #
-  # get 'advertisements/new'
+  # get 'questions/edit'
   #
-  # get 'advertisements/create'
-
-  # get 'question/index'
+  # get 'questions/new'
   #
-  # get 'question/new'
+  # get 'questions/create'
   #
-  # get 'question/create'
+  # get 'questions/update'
   #
-  # get 'question/show'
+  # get 'questions/destroy'
   #
-  # get 'question/edit'
-  #
-  # get 'question/update'
-  #
-  # get 'question/destroy'
 
   resources :topics do
     resources :posts, except: [:index]
@@ -44,12 +22,12 @@ Rails.application.routes.draw do
   # resources :posts
   resources :advertisements
   #resources :advertisement
-  resources :question
-
+  resources :questions
+  
   get 'about' => 'welcome#about'
 #  get 'welcome/contact'
 
-#  get 'welcome/faq'
+  get 'welcome/faq'
 
   root "welcome#index"
 
