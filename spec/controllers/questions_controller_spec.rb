@@ -44,14 +44,6 @@ RSpec.describe QuestionsController, type: :controller do
       expect(response).to render_template :edit
     end
 
-    it "assigns question to be updated at @question" do
-      get :edit, params: {id: my_question.id}
-      question_instance = assigns(:question)
-
-      expect(question_instance.id).to eq my_question.id
-      expect(question_instance.title).to eq my_question.title
-      expect(question_instance.body).to eq my_question.body
-    end
   end
 
   describe "GET #new" do
@@ -74,17 +66,17 @@ RSpec.describe QuestionsController, type: :controller do
   describe "GET #create" do
 
     it "increases the number of questions by 1" do
-      expect{question :create, params:{question: {title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: true}}}.to change(Question, :count).by(1)
+      expect{post :create, params:{question: {title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: true}}}.to change(Question, :count).by(1)
       expect(assigns(:question)).to eq Question.last
     end
 
     it "assigns @question to the Question.last" do
-      question :create, params:{question: {title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: true}}
+      post :create, params:{question: {title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: true}}
       expect(assigns(:question)).to eq Question.last
     end
 
     it "redirects to the new question" do
-      question :create, params:{question: {title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: true}}
+      post :create, params:{question: {title: RandomData.random_sentence, body: RandomData.random_paragraph, resolved: true}}
       expect(response).to redirect_to Question.last
     end
 
@@ -95,7 +87,7 @@ RSpec.describe QuestionsController, type: :controller do
       new_title = RandomData.random_sentence
       new_body = RandomData.random_paragraph
 
-      put :update, params:{id: my_question.id, question: {name: new_title, body: new_body}}
+      put :update, params: {id: my_question.id, question: {title: new_title, body: new_body}}
       updated_question = assigns(:question)
       expect(updated_question.id).to eq my_question.id
       expect(updated_question.title).to eq new_title

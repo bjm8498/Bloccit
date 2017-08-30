@@ -1,2 +1,30 @@
-<h1>Questions#edit</h1>
-<p>Find me in app/views/questions/edit.html.erb</p>
+<h1>Edit Question</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Ground rules</p>
+    <ol>
+      <li>Make the question legible.</li>
+      <li>Do not ask anything you know the answer to.</li>
+      <li>Play nice with others if applicable.</li>
+    </ol>
+  </div>
+  <div class="col-md-8">
+    <%= form_for @question do |q| %>
+      <div class="form-group">
+        <%= q.label :title %>
+        <%= q.text_field :title, class: 'form-control', placeholder: "Enter the updates for the question" %>
+      </div>
+      <div class="form-group">
+        <%= q.label :body %>
+        <%= q.text_area :body, rows: 8, class: "form-control", placeholder: "Enter the updated question" %>
+      </div>
+      <div class="form-group">
+        <%= q.label :resolved, class: 'checkbox' do %>
+          <%= q.check_box :resolved %> Resolved
+        <% end %>
+      </div>
+      <%= q.submit "Save", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
