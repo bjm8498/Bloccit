@@ -32,15 +32,16 @@ post = Post.all
         )
 end
 
-# 100.times do
-#
-#   Advertisement.create!(
-#       title: RandomData.random_sentence,
-#       copy: RandomData.random_paragraph,
-#       price: RandomData.random_sentence
-#   )
-# end
-# advertisements = Advertisement.all
+100.times do
+
+  SponsoredPost.create!(
+      topic: topics.sample,
+      title: RandomData.random_sentence,
+      body: RandomData.random_paragraph,
+      price: RandomData.random_sentence
+  )
+end
+sponsoredposts = SponsoredPost.all
 
 
 Post.find_or_create_by(
@@ -58,4 +59,4 @@ puts "Seed finished"
 puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-puts "#{Advertisement.count} advertisements created"
+puts "#{SponsoredPost.count} sponsored posts created"
