@@ -1,26 +1,5 @@
 Rails.application.routes.draw do
 
-  # get 'sponsored_posts/show'
-  #
-  # get 'sponsored_posts/new'
-  #
-  # get 'sponsored_posts/edit'
-  #
-  # #
-  # get 'questions/index'
-  #
-  # get 'questions/show'
-  #
-  # get 'questions/edit'
-  #
-  # get 'questions/new'
-  #
-  # get 'questions/create'
-  #
-  # get 'questions/update'
-  #
-  # get 'questions/destroy'
-  #
 
   resources :topics do
     resources :posts, except: [:index]
@@ -30,6 +9,8 @@ Rails.application.routes.draw do
   resources :advertisements
   #resources :advertisement
   resources :questions
+
+  resources :users, only: [:new, :create]
 
   get 'about' => 'welcome#about'
 #  get 'welcome/contact'
