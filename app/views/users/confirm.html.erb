@@ -2,13 +2,12 @@
 <div class="row">
   <div class="col-md-8">
     <p>Are you sure these values are correct?</p>
-    <h4><% @testdata %> </h4>
-    <h4>Email: <% @user.email %> </h4>
-    <h4>Name: <% @user.name %> </h4>
+    <h4>Email: <%= @user.email %> </h4>
+    <h4>Name: <%= @user.name %> </h4>
   </div>
 
   <div class="col-md-4">
-    <%= button_to "Yes", {controller: "users", action: "create", }, class: 'btn btn-success' %>
+    <%= button_to "Yes", {controller: "users", action: "create"}, class: 'btn btn-success' %>
   </div>
   <div class="col-md-4">
     <%= button_to "No", {controller: "users", action: "new"}, class: 'btn btn-danger', method: 'get' %>
