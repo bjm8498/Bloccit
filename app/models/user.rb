@@ -19,6 +19,39 @@ class User < ApplicationRecord
 
   enum role: [:member, :admin]
 
+  # def caps
+  #   # Split the user's name on a space (e.g. between a first name and a last name).
+  #   # Google: ruby split full name
+  #   # Reveals: String#split method
+  #   # Identify data: user's name => self.name
+  #
+  #   names = self.name.split(" ")
+  #
+  #   # **Loop** over **each** NAME...
+  #   # Google: ruby loop over SOMETHING
+  #   # Reveals: Array#each method, blocks, and more
+  #
+  #   namePieces = []
+  #
+  #   names.each do |currentName|
+  #
+  #     # ...and uppercase the first letter.
+  #     # Reveals: currentName.capitalize
+  #
+  #     # Google: ruby build new array
+  #     namePieces << currentName.capitalize
+  #
+  #   end
+  #
+  #   # Re-combine the first and
+  #   # last names with a space in-between and save it to the name attribute.
+  #   # Your solution does not have to check for an existing name that is properly
+  #   # formatted. For example, "Steve Jobs" is properly formatted, but your
+  #   # solution should work on it anyways.
+  # end
+
+
+
   def caps
     if name
       arr = []

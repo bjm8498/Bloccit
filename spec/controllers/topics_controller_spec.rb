@@ -4,6 +4,8 @@ RSpec.describe TopicsController, type: :controller do
 
   let(:my_topic) { Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph)}
 
+  
+
   describe "GET index" do
     it "returns http success" do
       get :index
