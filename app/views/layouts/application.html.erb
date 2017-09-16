@@ -19,8 +19,8 @@
 
           <% if current_user %>
 
-            <li class="pull-right user">
-              <%= image_tag avatar_url(current_user), class: :gravatar %> <br>
+            <li class="pull-right user-anonymous">
+              <%= image_tag avatar_url(current_user), class: :gravatar %>
               <%= "#{current_user.name}" %>
               <%= link_to "Sign Out", session_path(current_user), method: :delete %>
             </li>
