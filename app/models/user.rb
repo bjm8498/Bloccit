@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  enum role: [:member, :admin]
+  enum role: [:member, :admin, :moderator]
 
   # def caps
   #   # Split the user's name on a space (e.g. between a first name and a last name).
