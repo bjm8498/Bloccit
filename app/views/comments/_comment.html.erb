@@ -1,0 +1,13 @@
+<div class="col-md-8">
+  <small>
+    <%= comment.user.name %> commented <%= time_ago_in_words(comment.created_at) %> ago
+    <% if user_is_authorized_for_comment?(comment)  %>
+      <%= link_to, "Delete", [@post, comment], method: :delete %>
+    <% end %>
+  </small>
+  <p><%= @post.body %></p>
+  <div>
+    <h3>Comments</h3>
+    <%= render @post.comments %>
+  </div>
+</div>

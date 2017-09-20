@@ -13,7 +13,7 @@ RSpec.describe CommentsController, type: :controller do
 
     describe "POST create" do
       it "redirects the user to the sign in view" do
-        post :create,  post_id: my_post.id, comment: {body: RandomData.random_sentence}
+        post :create, post_id: my_post.id, comment: {body: RandomData.random_sentence}
         expect(response).to redirect_to(new_session_path)
       end
     end
