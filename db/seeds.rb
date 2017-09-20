@@ -39,7 +39,7 @@ post = Post.all
 
 
     Comment.create!(
-
+        user: users.sample,
         post: post.sample,
         body: RandomData.random_paragraph
         )

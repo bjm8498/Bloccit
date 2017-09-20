@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :posts, except: [:index]
     resources :sponsored_posts, except: [:index]
   end
-  # resources :posts
+  resources :posts, only: [] do
+
+    resources :comments, only: [:create, :destroy]
+  end
   resources :advertisements
   #resources :advertisement
   resources :questions
