@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 
   before_action :authorize_user, except: [:index, :show]
 
-  before_action :moderator, except: [:index, :show, :new, :create, :edit, :update]
+  before_action :moderator, except: [:index, :show]
   def index
     @topics = Topic.all
   end
