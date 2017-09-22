@@ -10,13 +10,9 @@ class PostsController < ApplicationController
   # end
   before_action :require_sign_in, except: :show
 
-  before_action :authorize_user, except: [:show, :new, :create]
+  before_action :authorize_admin_or_moderator, only: [:edit, :update]
 
-<<<<<<< HEAD
-  before_action :moderator, except: [:show, :new, :create, :edit, :update]
-=======
-  before_action :moderator, except: [:show, :new, :create]
->>>>>>> Checkpoint-27-Assignment
+  before_action :authorize_admin, only: [:destroy]
   def show
     @post = Post.find(params[:id])
   end
@@ -80,7 +76,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
-  def authorize_user
+  def authorize_admin
     post = Post.find(params[:id])
 
     unless current_user == post.user || current_user.admin?
@@ -89,10 +85,12 @@ class PostsController < ApplicationController
     end
   end
 
-  def moderator
-    unless current_user.moderator?
+  def authorize_admin_or_moderator
+    post = Post.find(params[:id])
+
+    unless current_user.moderator? || current_user.admin? || current_user == post.user
       flash[:alert] = "You must be at least a moderator to do that."
-      redirect_to topics_path
+      redirect_to [post.topic, post]
     end
   end
 
