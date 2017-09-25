@@ -43,6 +43,8 @@ gem 'thor', '0.19.4'
 # Add bootstrap library to the project.
 gem 'bootstrap-sass'
 
+# Add figaro to securely config app.
+gem 'figaro', '1.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
