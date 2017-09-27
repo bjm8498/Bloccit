@@ -9,14 +9,14 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]
-    post '/up-vote' => 'votes#up-vote', as: :up_vote
-    post '/down-vote' => 'votes#down-vote', as: :down_vote
+    post '/up-vote' => 'votes#up_vote', as: :up_vote
+    post '/down-vote' => 'votes#down_vote', as: :down_vote
   end
   resources :advertisements
 
   resources :questions
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create, :show]
   post 'users/confirm' => 'users#confirm'
 
   resources :sessions, only: [:new, :create, :destroy]

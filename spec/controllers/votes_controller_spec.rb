@@ -94,7 +94,7 @@ RSpec.describe VotesController, type: :controller do
       end
 
       it ":back redirects to the posts topic show" do
-        request.env["HTTP_REFERER"] = topic_post_path(my_topic)
+        request.env["HTTP_REFERER"] = topic_path(my_topic)
         post :down_vote, params: { post_id: user_post.id }
         expect(response).to redirect_to(my_topic)
       end

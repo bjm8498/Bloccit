@@ -1,12 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "password") }
+  let(:user) { create(:user) }
 
   it { is_expected.to have_many(:votes) }
   it { is_expected.to have_many(:favorites) }
   it { is_expected.to have_many(:posts) }
   it { is_expected.to have_many(:comments) }
+
   #name tests
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_length_of(:name).is_at_least(1) }
@@ -24,7 +25,7 @@ RSpec.describe User, type: :model do
 
   describe "attributes" do
     it "should have a name and an email address" do
-      expect(user).to have_attributes(name: "Bloccit User", email: "user@bloccit.com")
+      expect(user).to have_attributes(name: user.name, email: user.email )
     end
 
     it "should capitalize the user name" do
@@ -122,6 +123,18 @@ RSpec.describe User, type: :model do
       favorite = user.favorites.where(post: @post).create
 
       expect(user.favorite_for(@post)).to eq(favorite)
+    end
+  end
+
+  describe ".avatar_url" do
+
+    let(:known_user) { create(:user, email: "blochead@bloc.io") }
+
+    it "returns the proper Gravatar url for a known email entity" do
+
+      expected_gravatar = "http://gravatar.com/avatar/bb6d1172212c180cfbdb7039129d7b03.png?s=48"
+
+      expect(known_user.avatar_url(48)).to eq(expected_gravatar)
     end
   end
 end
