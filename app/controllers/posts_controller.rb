@@ -13,6 +13,9 @@ class PostsController < ApplicationController
   before_action :authorize_admin_or_moderator, only: [:edit, :update]
 
   before_action :authorize_admin, only: [:destroy]
+
+
+
   def show
     @post = Post.find(params[:id])
   end
@@ -93,5 +96,7 @@ class PostsController < ApplicationController
       redirect_to [post.topic, post]
     end
   end
+
+
 
 end

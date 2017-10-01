@@ -4,10 +4,10 @@
     submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %>
   </small>
 </h1>
-<div>
+<!-- <div>
   <%= render partial: 'votes/voting', locals: { post: @post } %>
 
-</div>
+</div> -->
 <%= render @post %>
 <div class="row">
   <div class="col-md-8">
