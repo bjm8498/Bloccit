@@ -19,7 +19,18 @@
     </div>
 
     <h2>Posts</h2>
+    <% if post_detector?%>
+    <h5><%= @user.name %> has not put up any posts yet.</h5>
+    <% else %>
     <%= render @user.posts %>
+    <% end %>
 
     <h2>Comments</h2>
+    <% if comment_detector? %>
+    <h5><%= @user.name %> has not put up any comments yet.</h5>
+    <% else %>
     <%= render @user.comments %>
+    <% end %>
+
+    <h2>Favorites</h2>
+    <%= render @user.favorites %>

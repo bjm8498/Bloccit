@@ -1,6 +1,11 @@
 module UsersHelper
 
-  # def comment_or_post_detector
-  #   current_user.posts.size(0)? || current_user.comments.size(0)?
-  # end
+  def post_detector?
+    @posts.length == 0
+  end
+
+  def comment_detector?
+
+    @user.comments.size == 0
+  end
 end
