@@ -1,1 +1,11 @@
-<h3><%= @post.user.name%></h3>
+<h4><%= favorite.post.title %></h4>
+<div class="pull-left fav-logo">
+  <%= image_tag favorite.post.user.avatar_url(32) %>
+</div>
+<h5 class="user"><%= favorite.post.user.name%></h5>
+<br>
+<small><%= favorite.post.comments.count%> Comments</small>
+
+<small><%= favorite.post.votes.count%> Votes</small>
+<br>
+<br>

@@ -1,16 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-
-    #let(:post) { Post.create!(title: "New Post Title", body: "New Post Body") }
     let(:name) { RandomData.random_sentence }
     let(:description) { RandomData.random_paragraph }
     let(:title) { RandomData.random_sentence }
     let(:body) { RandomData.random_paragraph }
-
-    # let(:topic) { Topic.create!(name: name, description: description) }
-    # let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
-    # let(:post) {topic.posts.create!(title: title, body: body, user: user) }
     let(:topic) { create(:topic) }
     let(:user) { create(:user) }
     let(:post) { create(:post) }
@@ -68,9 +62,6 @@ RSpec.describe Post, type: :model do
         end
 
       end
-
-
-
 
 
       describe "#update_rank" do

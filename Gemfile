@@ -39,6 +39,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'thor', '0.19.4'
+gem 'jquery-rails'
 
 # Add bootstrap library to the project.
 gem 'bootstrap-sass'

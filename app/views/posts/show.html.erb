@@ -4,13 +4,10 @@
     submitted <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.name %>
   </small>
 </h1>
-<!-- <div>
+<div>
   <%= render partial: 'votes/voting', locals: { post: @post } %>
 
-</div> -->
-<!-- <%= render @post %> -->
-
-
+</div>
 <div class="row">
   <div class="col-md-8">
     <p> <%= @post.body %> </p>
@@ -31,9 +28,6 @@
   <% if user_is_authorized_for_post?(@post) %>
       <%= link_to "Delete Post", [@post.topic, @post], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this post?'} %>
     </div>
-    <!-- <div class="col-md-4">
-      <%= link_to "Edit", edit_topic_post_path(@post.topic, @post), class: 'btn btn-success' %>
-    </div> -->
   <% end %>
   <div class="col-md-4">
     <h3>
@@ -46,7 +40,6 @@
       </div>
     </h3>
     <% if current_user %>
-      <!-- <%= render partial: 'favorites/favorite', locals: { post: @post } %> -->
       <% if favorite = current_user.favorite_for(@post) %>
 
         <%= link_to [@post, favorite], class: 'btn btn-danger', method: :delete do %>
