@@ -17,7 +17,7 @@ class Post < ApplicationRecord
     validates :user, presence: true
 
     after_create :create_vote
-    after_create :favorite_post
+    # after_create :favorite_post
 
     def up_votes
       votes.where(value: 1).count
@@ -43,9 +43,9 @@ class Post < ApplicationRecord
       user.votes.create(value: 1, post: self)
     end
 
-    def favorite_post
-      Favorite.create!(post: self, user: self.user)
-      FavoriteMailer.new_post(self).deliver_now
-    end
+    # def favorite_post
+    #   Favorite.create!(post: self, user: self.user)
+    #   FavoriteMailer.new_post(self).deliver_now
+    # end
 
 end

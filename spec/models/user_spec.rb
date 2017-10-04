@@ -63,6 +63,7 @@ RSpec.describe User, type: :model do
       end
     end
 
+
     context "admin user" do
       before do
         user.admin!
@@ -89,7 +90,6 @@ RSpec.describe User, type: :model do
       it "returns false for #admin" do
         expect(user.admin?).to be_falsey
       end
-
     end
   end
 
@@ -109,11 +109,13 @@ RSpec.describe User, type: :model do
 
   end
 
+
   describe "#favorite_for(post)" do
 
     before do
       topic = create(:topic)
       @post = create(:post)
+    end
     it "returns 'nil' if the user has not favorited the post" do
       expect(user.favorite_for(@post)).to be_nil
     end
@@ -132,4 +134,5 @@ RSpec.describe User, type: :model do
       expect(known_user.avatar_url(48)).to eq(expected_gravatar)
     end
   end
+
 end
